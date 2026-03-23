@@ -52,6 +52,13 @@ mkdir -p "$APP_BUNDLE/Contents/Resources"
 # Copy binary
 cp "$BINARY" "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 
+# Copy SwiftPM resource bundle (required for Bundle.module at runtime)
+RESOURCE_BUNDLE="$SCRIPT_DIR/.build/release/${APP_NAME}_${APP_NAME}.bundle"
+if [ -d "$RESOURCE_BUNDLE" ]; then
+    cp -R "$RESOURCE_BUNDLE" "$APP_BUNDLE/Contents/MacOS/"
+    echo "Resource bundle copied."
+fi
+
 # Copy app icon
 ICON_SRC="$SCRIPT_DIR/Assets/AppIcon.icns"
 if [ -f "$ICON_SRC" ]; then
