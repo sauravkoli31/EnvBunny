@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct EnvironmentManagerApp: App {
+struct EnvBunnyApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {

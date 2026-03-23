@@ -9,6 +9,16 @@ struct ContentView: View {
             VariableEditorView(viewModel: viewModel)
         }
         .toolbar {
+            ToolbarItem(placement: .navigation) {
+                if let url = Bundle.module.url(forResource: "envBunny-logo", withExtension: "png"),
+                   let nsImage = NSImage(contentsOf: url) {
+                    Image(nsImage: nsImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 20)
+                }
+            }
+
             ToolbarItem(placement: .automatic) {
                 ImportButton(viewModel: viewModel)
             }

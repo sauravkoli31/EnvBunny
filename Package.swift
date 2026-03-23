@@ -3,14 +3,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "EnvironmentManager",
+    name: "EnvBunny",
     platforms: [
         .macOS(.v14),
     ],
     targets: [
         .executableTarget(
-            name: "EnvironmentManager",
-            path: "Sources"
+            name: "EnvBunny",
+            path: "Sources",
+            resources: [
+                .process("Resources"),
+            ]
         ),
     ]
 )

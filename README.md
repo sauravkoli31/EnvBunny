@@ -1,4 +1,8 @@
-# Environment Manager
+<p align="center">
+  <img src="Assets/envBunny.png" alt="EnvBunny" width="480">
+</p>
+
+# EnvBunny
 
 A native macOS application for managing environment variables across multiple environments. Create, edit, and switch between development, staging, production (or any custom) environments with a single click — automatically updating your `.zshrc` and a flat `.env` file.
 
@@ -25,7 +29,7 @@ Built with SwiftUI and Swift Package Manager. No Xcode project required.
 
 ### From DMG (recommended)
 
-Download the latest `.dmg` from [Releases](../../releases), open it, and drag **Environment Manager** to your Applications folder.
+Download the latest `.dmg` from [Releases](../../releases), open it, and drag **EnvBunny** to your Applications folder.
 
 ### Build from source
 
@@ -35,7 +39,7 @@ cd environment-manager
 ./build.sh
 ```
 
-The script compiles a release binary, assembles a `.app` bundle, and packages it into a DMG at `build/EnvironmentManager-<version>.dmg`. The minor version is auto-incremented on each build.
+The script compiles a release binary, assembles a `.app` bundle, and packages it into a DMG at `build/EnvBunny-<version>.dmg`. The minor version is auto-incremented on each build.
 
 To run directly during development:
 
@@ -90,7 +94,7 @@ Open a new terminal (or run `source ~/.zshrc`) to pick up the changes.
 ```
 Sources/
 ├── App/
-│   └── EnvironmentManagerApp.swift    # Entry point, window config, AppDelegate
+│   └── EnvBunnyApp.swift              # Entry point, window config, AppDelegate
 ├── Models/
 │   ├── Environment.swift              # EnvironmentVariable, AppEnvironment
 │   └── AppConfig.swift                # Root config model

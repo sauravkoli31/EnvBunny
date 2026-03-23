@@ -5,18 +5,18 @@
             "request": "launch",
             "args": [],
             "cwd": "${workspaceFolder:environment-manager}",
-            "name": "Debug EnvironmentManager",
-            "program": "${workspaceFolder:environment-manager}/.build/debug/EnvironmentManager",
-            "preLaunchTask": "swift: Build Debug EnvironmentManager"
+            "name": "Debug EnvBunny",
+            "program": "${workspaceFolder:environment-manager}/.build/debug/EnvBunny",
+            "preLaunchTask": "swift: Build Debug EnvBunny"
         },
         {
             "type": "lldb",
             "request": "launch",
             "args": [],
             "cwd": "${workspaceFolder:environment-manager}",
-            "name": "Release EnvironmentManager",
-            "program": "${workspaceFolder:environment-manager}/.build/release/EnvironmentManager",
-            "preLaunchTask": "swift: Build Release EnvironmentManager"
+            "name": "Release EnvBunny",
+            "program": "${workspaceFolder:environment-manager}/.build/release/EnvBunny",
+            "preLaunchTask": "swift: Build Release EnvBunny"
         }
     ]
 }

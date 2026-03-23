@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-APP_NAME="EnvironmentManager"
-DISPLAY_NAME="Environment Manager"
+APP_NAME="EnvBunny"
+DISPLAY_NAME="EnvBunny"
 BUNDLE_ID="com.sauravkoli.environment-manager"
 MIN_MACOS="14.0"
 
@@ -52,6 +52,13 @@ mkdir -p "$APP_BUNDLE/Contents/Resources"
 # Copy binary
 cp "$BINARY" "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 
+# Copy app icon
+ICON_SRC="$SCRIPT_DIR/Assets/AppIcon.icns"
+if [ -f "$ICON_SRC" ]; then
+    cp "$ICON_SRC" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
+    echo "App icon copied."
+fi
+
 # Create Info.plist
 cat > "$APP_BUNDLE/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,6 +85,8 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<EOF
 	<false/>
 	<key>NSHighResolutionCapable</key>
 	<true/>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 </dict>

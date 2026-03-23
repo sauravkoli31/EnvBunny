@@ -1,6 +1,10 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+extension UTType {
+    static let dotenv = UTType(filenameExtension: "env", conformingTo: .plainText) ?? .plainText
+}
+
 struct ImportButton: View {
     @Bindable var viewModel: EnvironmentViewModel
 
@@ -14,9 +18,11 @@ struct ImportButton: View {
 
     private func importEnvFile() {
         let panel = NSOpenPanel()
-        panel.allowedContentTypes = [.plainText]
+        panel.allowedContentTypes = [.dotenv, UTType(filenameExtension: "txt")!]
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
+        panel.treatsFilePackagesAsDirectories = false
+        panel.showsHiddenFiles = true
         panel.title = "Import .env File"
 
         guard panel.runModal() == .OK, let url = panel.url else { return }
