@@ -74,6 +74,11 @@ jobs:
           </plist>
           EOF
 
+      - name: Ad-hoc sign and strip quarantine
+        run: |
+          codesign --force --deep --sign - build/EnvBunny.app
+          xattr -cr build/EnvBunny.app
+
       - name: Create DMG
         run: |
           APP_NAME="EnvBunny"
