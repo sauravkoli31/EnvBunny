@@ -90,6 +90,12 @@ struct ExportButton: View {
             .map { "\($0.key)=\($0.value)" }
             .joined(separator: "\n") + "\n"
 
-        try? content.write(to: url, atomically: true, encoding: .utf8)
+        do {
+            try content.write(to: url, atomically: true, encoding: .utf8)
+            // Restrict exported file to owner-only read/write
+            try FileManager.default.setAttributes([.posixPermissions: 0o600], ofItemAtPath: url.path)
+        } catch {
+            // Best-effort write
+        }
     }
 }

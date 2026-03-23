@@ -118,6 +118,9 @@ struct ZshrcService {
         let backupURL = backupsDirectory.appendingPathComponent("zshrc.backup.\(timestamp)")
 
         try? content.write(to: backupURL, atomically: true, encoding: .utf8)
+
+        // Restrict backup file to owner-only read/write
+        try? fm.setAttributes([.posixPermissions: 0o600], ofItemAtPath: backupURL.path)
     }
 
     private static func atomicWrite(content: String, to url: URL) -> Bool {
@@ -126,6 +129,8 @@ struct ZshrcService {
 
         do {
             try content.write(to: tempURL, atomically: false, encoding: .utf8)
+            // Restrict temp file before moving into place
+            try FileManager.default.setAttributes([.posixPermissions: 0o600], ofItemAtPath: tempURL.path)
             _ = try FileManager.default.replaceItemAt(url, withItemAt: tempURL)
             return true
         } catch {

@@ -28,6 +28,12 @@ dist/
 # Logs
 *.log
 
+# DMG distribution
+*.dmg
+
+# Version tracking (auto-bumped by build.sh)
+.version
+
 # Environment and local secrets
 .env
 .env.*
