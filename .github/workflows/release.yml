@@ -37,10 +37,9 @@ jobs:
 
           cp ".build/release/$APP_NAME" "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 
-          # Copy SwiftPM resource bundle (required for Bundle.module at runtime)
-          # Bundle.module looks at Bundle.main.bundleURL (the .app root), not Contents/Resources
-          if [ -d ".build/release/${APP_NAME}_${APP_NAME}.bundle" ]; then
-            cp -R ".build/release/${APP_NAME}_${APP_NAME}.bundle" "$APP_BUNDLE/"
+          # Copy logo into Resources (loaded via Bundle.main at runtime)
+          if [ -f "Assets/envBunny-logo.png" ]; then
+            cp "Assets/envBunny-logo.png" "$APP_BUNDLE/Contents/Resources/envBunny-logo.png"
           fi
 
           if [ -f "Assets/AppIcon.icns" ]; then

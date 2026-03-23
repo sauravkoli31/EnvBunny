@@ -10,10 +10,7 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "EnvBunny",
-            path: "Sources",
-            resources: [
-                .process("Resources"),
-            ]
+            path: "Sources"
         ),
     ]
 )

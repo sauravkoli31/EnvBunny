@@ -10,7 +10,7 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigation) {
-                if let url = Bundle.module.url(forResource: "envBunny-logo", withExtension: "png"),
+                if let url = Bundle.main.url(forResource: "envBunny-logo", withExtension: "png"),
                    let nsImage = NSImage(contentsOf: url) {
                     Image(nsImage: nsImage)
                         .resizable()
