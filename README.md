@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/envBunny.png" alt="EnvBunny" width="480">
+  <img src="Assets/envBunny-logo.png" alt="EnvBunny" width="480">
 </p>
 
 # EnvBunny
