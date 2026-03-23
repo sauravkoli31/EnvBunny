@@ -34,6 +34,9 @@ dist/
 # Version tracking (auto-bumped by build.sh)
 .version
 
+# Project plan (local only)
+PROJECT_PLAN.md
+
 # Environment and local secrets
 .env
 .env.*
